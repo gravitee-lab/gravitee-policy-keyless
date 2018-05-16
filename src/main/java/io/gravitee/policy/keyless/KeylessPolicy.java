@@ -18,13 +18,21 @@ package io.gravitee.policy.keyless;
 import io.gravitee.gateway.api.ExecutionContext;
 import io.gravitee.gateway.api.Request;
 import io.gravitee.gateway.api.Response;
+import io.gravitee.policy.api.ChainScope;
 import io.gravitee.policy.api.PolicyChain;
+import io.gravitee.policy.api.annotations.Category;
 import io.gravitee.policy.api.annotations.OnRequest;
+import io.gravitee.policy.api.annotations.Policy;
+import io.gravitee.policy.api.annotations.Scope;
 
 /**
  * @author David BRASSELY (david.brassely at graviteesource.com)
  * @author GraviteeSource Team
  */
+@Policy(
+        category = @Category(io.gravitee.policy.api.Category.SECURITY),
+        scope = @Scope(ChainScope.SECURITY)
+)
 public class KeylessPolicy {
 
     /**
