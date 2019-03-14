@@ -35,7 +35,7 @@ public class KeylessPolicy {
     @OnRequest
     public void onRequest(Request request, Response response, ExecutionContext executionContext, PolicyChain policyChain) {
         executionContext.setAttribute(ExecutionContext.ATTR_APPLICATION, APPLICATION_NAME_ANONYMOUS);
-        executionContext.setAttribute(ExecutionContext.ATTR_USER_ID, request.remoteAddress());
+        executionContext.setAttribute(ExecutionContext.ATTR_SUBSCRIPTION_ID, request.remoteAddress());
         policyChain.doNext(request, response);
     }
 }
